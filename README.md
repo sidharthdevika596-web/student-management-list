@@ -1,4 +1,4 @@
-#internship 
+#internship
 
 # student-management-list
 

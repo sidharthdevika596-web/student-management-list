@@ -1,0 +1,48 @@
+CREATE DATABASE StudentDB;
+USE StudentDB;
+
+CREATE TABLE Course (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    duration VARCHAR(20)
+);
+
+CREATE TABLE Student (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(50),
+    age INT,
+    course_id INT,
+    FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
+
+INSERT INTO Course VALUES
+(101, 'Python', '3 Months'),
+(102, 'Java', '4 Months'),
+(103, 'Data Science', '6 Months');
+
+INSERT INTO Student VALUES
+(1, 'Rahul', 20, 101),
+(2, 'Anu', 21, 102),
+(3, 'Akhil', 19, 103),
+(4, 'Meera', 22, 101);
+
+
+SELECT * FROM Student;
+
+SELECT * FROM Course;
+
+SELECT * FROM Student WHERE age > 20;
+
+SELECT * FROM Student WHERE course_id = 101;
+
+UPDATE Student SET age = 23 WHERE student_id = 4;
+
+UPDATE Course SET duration = '5 Months' WHERE course_id = 102;
+
+DELETE FROM Student WHERE student_id = 2;
+
+SELECT student_name FROM Student;
+
+SELECT s.student_id, s.student_name, c.course_name FROM Student s JOIN Course c ON s.course_id = c.course_id;
+
+SELECT s.student_name, s.age, c.course_name, c.duration FROM Student s JOIN Course c ON s.course_id = c.course_id;

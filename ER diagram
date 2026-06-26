@@ -1,0 +1,8 @@
++------------+          +---------------+          +------------+
+|  Students  |          |  Enrollments  |          |  Courses   |
++------------+          +---------------+          +------------+
+| student_id PK|<----+  | enrollment_id PK | +---->| course_id PK |
+| first_name   |     |  | student_id FK   | |      | course_name |
+| last_name    |     +--| course_id FK    |--+      | course_code |
+| email        |        | enrollment_date |         | credits     |
++------------+          +---------------+          +------------+
